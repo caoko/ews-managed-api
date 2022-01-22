@@ -79,6 +79,22 @@ namespace Microsoft.Exchange.WebServices.Data
         }
 
         /// <summary>
+        /// Binds to an existing item, whatever its actual type is, and loads the specified set of properties.
+        /// Calling this method results in a call to EWS.
+        /// </summary>
+        /// <param name="service">The service to use to bind to the item.</param>
+        /// <param name="id">The Id of the item to bind to.</param>
+        /// <param name="propertySet">The set of properties to load.</param>
+        /// <returns>An Item instance representing the item corresponding to the specified Id.</returns>
+        public static async System.Threading.Tasks.Task<Item> BindAsync(
+            ExchangeService service,
+            ItemId id,
+            PropertySet propertySet)
+        {
+            return await service.BindToItemAsync<Item>(id, propertySet).ConfigureAwait(false);
+        }
+
+        /// <summary>
         /// Binds to an existing item, whatever its actual type is, and loads its first class properties.
         /// Calling this method results in a call to EWS.
         /// </summary>
@@ -91,6 +107,21 @@ namespace Microsoft.Exchange.WebServices.Data
                 service,
                 id,
                 PropertySet.FirstClassProperties);
+        }
+
+        /// <summary>
+        /// Binds to an existing item, whatever its actual type is, and loads its first class properties.
+        /// Calling this method results in a call to EWS.
+        /// </summary>
+        /// <param name="service">The service to use to bind to the item.</param>
+        /// <param name="id">The Id of the item to bind to.</param>
+        /// <returns>An Item instance representing the item corresponding to the specified Id.</returns>
+        public static async System.Threading.Tasks.Task<Item> BindAsync(ExchangeService service, ItemId id)
+        {
+            return await Item.BindAsync(
+                service,
+                id,
+                PropertySet.FirstClassProperties).ConfigureAwait(false);
         }
 
         /// <summary>
