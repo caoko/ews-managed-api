@@ -28,6 +28,7 @@ namespace Microsoft.Exchange.WebServices.Data
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Reflection;
     using System.Text;
 
     /// <summary>
@@ -159,17 +160,32 @@ namespace Microsoft.Exchange.WebServices.Data
                 {
                     reader.Read();
 
+                    // https://github.com/OfficeDev/ews-managed-api/issues/141
+                    //if (reader.IsStartElement() && this.Count > 0)
                     if (reader.IsStartElement())
                     {
+                        index++;
+
                         TComplexProperty complexProperty = this.CreateComplexProperty(reader.LocalName);
-                        TComplexProperty actualComplexProperty = this[index++];
-
-                        if (complexProperty == null || !complexProperty.GetType().IsInstanceOfType(actualComplexProperty))
+                        if (this.Count > index)
                         {
-                            throw new ServiceLocalException(Strings.PropertyTypeIncompatibleWhenUpdatingCollection);
-                        }
+                            TComplexProperty actualComplexProperty = this[index];
 
-                        actualComplexProperty.UpdateFromXml(reader, xmlNamespace, reader.LocalName);
+                            if (complexProperty == null || !complexProperty.GetType().IsInstanceOfType(actualComplexProperty))
+                            {
+                                throw new ServiceLocalException(Strings.PropertyTypeIncompatibleWhenUpdatingCollection);
+                            }
+
+                            actualComplexProperty.UpdateFromXml(reader, xmlNamespace, reader.LocalName);
+                        }
+                        else
+                        {
+                            if (complexProperty != null)
+                            {
+                                complexProperty.LoadFromXml(reader, reader.LocalName);
+                                this.InternalAdd(complexProperty, true);
+                            }
+                        }
                     }
                 }
                 while (!reader.IsEndElement(xmlNamespace, xmlElementName));
