@@ -40,7 +40,8 @@ namespace Microsoft.Exchange.WebServices.Data
         /// </summary>
         private static XmlReaderSettings defaultSettings = new XmlReaderSettings()
         {
-            ProhibitDtd = true,
+            //ProhibitDtd = true,
+            DtdProcessing = DtdProcessing.Prohibit,
             XmlResolver = null
         };
         #endregion
@@ -54,7 +55,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(Stream stream)
         {
             XmlTextReader xtr = new XmlTextReader(stream);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -67,7 +69,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string url)
         {
             XmlTextReader xtr = new XmlTextReader(url);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -80,7 +83,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(TextReader input)
         {
             XmlTextReader xtr = new XmlTextReader(input);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -94,7 +98,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(Stream input, XmlNameTable nt)
         {
             XmlTextReader xtr = new XmlTextReader(input, nt);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -108,7 +113,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string url, Stream input)
         {
             XmlTextReader xtr = new XmlTextReader(url, input);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -122,7 +128,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string url, TextReader input)
         {
             XmlTextReader xtr = new XmlTextReader(url, input);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -136,7 +143,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string url, XmlNameTable nt)
         {
             XmlTextReader xtr = new XmlTextReader(url, nt);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -150,7 +158,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(TextReader input, XmlNameTable nt)
         {
             XmlTextReader xtr = new XmlTextReader(input, nt);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -165,7 +174,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(Stream xmlFragment, XmlNodeType fragType, XmlParserContext context)
         {
             XmlTextReader xtr = new XmlTextReader(xmlFragment, fragType, context);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -180,7 +190,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string url, Stream input, XmlNameTable nt)
         {
             XmlTextReader xtr = new XmlTextReader(url, input, nt);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -195,7 +206,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string url, TextReader input, XmlNameTable nt)
         {
             XmlTextReader xtr = new XmlTextReader(url, input, nt);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -210,7 +222,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public static XmlTextReader CreateSafeXmlTextReader(string xmlFragment, XmlNodeType fragType, XmlParserContext context)
         {
             XmlTextReader xtr = new XmlTextReader(xmlFragment, fragType, context);
-            xtr.ProhibitDtd = true;
+            //xtr.ProhibitDtd = true;
+            xtr.DtdProcessing = DtdProcessing.Prohibit;
             xtr.XmlResolver = null;
             return xtr;
         }
@@ -266,7 +279,8 @@ namespace Microsoft.Exchange.WebServices.Data
             // we need to check to see if the reader is configured properly
             if (reader.Settings != null)
             {
-                if (reader.Settings.ProhibitDtd != true)
+                //if (reader.Settings.ProhibitDtd != true)
+                if (reader.Settings.DtdProcessing != DtdProcessing.Prohibit)
                 {
                     throw new XmlDtdException();
                 }
@@ -300,7 +314,8 @@ namespace Microsoft.Exchange.WebServices.Data
             // we need to check to see if the reader is configured properly
             if (reader.Settings != null)
             {
-                if (reader.Settings.ProhibitDtd != true)
+                //if (reader.Settings.ProhibitDtd != true)
+                if (reader.Settings.DtdProcessing != DtdProcessing.Prohibit)
                 {
                     throw new XmlDtdException();
                 }
