@@ -76,5 +76,32 @@ namespace Microsoft.Exchange.WebServices.Data
         /// Functionality starting 10/05/2015
         /// </summary>
         V2015_10_05 = 8,
+
+        /// <remarks/>
+        V2016_01_06,
+
+        /// <remarks/>
+        V2016_04_13,
+
+        /// <remarks/>
+        V2016_07_13,
+
+        /// <remarks/>
+        V2016_10_10,
+
+        /// <remarks/>
+        V2017_01_07,
+
+        /// <remarks/>
+        V2017_04_14,
+
+        /// <remarks/>
+        V2017_07_11,
+
+        /// <remarks/>
+        V2017_10_09,
+
+        /// <remarks/>
+        V2018_01_08,
     }
 }

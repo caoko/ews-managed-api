@@ -333,5 +333,135 @@ namespace Microsoft.Exchange.WebServices.Data
 
         //// Note when you adding new folder id here, please update sources\test\Services\src\ComponentTests\GlobalVersioningControl.cs
         //// IsExchange2013Folder method accordingly.
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("personmetadata")]
+        PersonMetaData,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("teamspaceactivity")]
+        TeamSpaceActivity,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("teamspacemessaging")]
+        TeamSpaceMessaging,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("teamspaceworkitems")]
+        teamspaceworkitems,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("scheduled")]
+        Scheduled,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("orionnotes")]
+        OrionNotes,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("tagitems")]
+        TagItems,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("alltaggeditems")]
+        AllTaggedItems,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("allcategorizeditems")]
+        AllCategorizedItems,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("externalcontacts")]
+        ExternalContacts,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("teamchat")]
+        TeamChat,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("teamchathistory")]
+        TeamChatHistory,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("yammerdata")]
+        YammerData,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("yammerroot")]
+        YammerRoot,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("yammerinbound")]
+        YammerInbound,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("yammeroutbound")]
+        YammerOutbound,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("yammerfeeds")]
+        YammerFeeds,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("kaizaladata")]
+        KaizalaData,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("messageingestion")]
+        MessageIngestion,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("onedriveroot")]
+        OnedriveRoot,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("onedriverecylebin")]
+        OnedriveRecylebin,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("onedrivesystem")]
+        OnedriveSystem,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("onedrivevolume")]
+        OnedriveVolume,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("important")]
+        Important,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("starred")]
+        Starred,
+
+        /// <remarks/>
+        //[RequiredServerVersion(ExchangeVersion.V2018_01_08)]
+        [EwsEnum("archive")]
+        Archive,
     }
 }
