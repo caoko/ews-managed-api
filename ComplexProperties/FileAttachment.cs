@@ -211,7 +211,7 @@ namespace Microsoft.Exchange.WebServices.Data
 
             try
             {
-                await this.LoadAsync();
+                await this.LoadAsync().ConfigureAwait(false);
             }
             finally
             {
@@ -252,7 +252,7 @@ namespace Microsoft.Exchange.WebServices.Data
 
             try
             {
-                await this.LoadAsync();
+                await this.LoadAsync().ConfigureAwait(false);
             }
             finally
             {

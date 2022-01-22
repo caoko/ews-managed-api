@@ -91,7 +91,7 @@ namespace Microsoft.Exchange.WebServices.Data
             ItemId id,
             PropertySet propertySet)
         {
-            return await service.BindToItemAsync<Item>(id, propertySet);
+            return await service.BindToItemAsync<Item>(id, propertySet).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Microsoft.Exchange.WebServices.Data
             return await Item.BindAsync(
                 service,
                 id,
-                PropertySet.FirstClassProperties);
+                PropertySet.FirstClassProperties).ConfigureAwait(false);
         }
 
         /// <summary>

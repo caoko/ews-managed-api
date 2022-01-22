@@ -173,7 +173,7 @@ namespace Microsoft.Exchange.WebServices.Data
         /// <returns>Service response collection promise.</returns>
         internal async System.Threading.Tasks.Task<ServiceResponseCollection<TResponse>> ExecuteAsync()
         {
-            return await System.Threading.Tasks.Task.Factory.FromAsync<ServiceResponseCollection<TResponse>>(this.BeginExecute, this.EndExecute, this);
+            return await System.Threading.Tasks.Task.Factory.FromAsync<ServiceResponseCollection<TResponse>>(this.BeginExecute, this.EndExecute, this).ConfigureAwait(false);
         }
 
         /// <summary>

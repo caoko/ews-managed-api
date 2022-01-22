@@ -321,7 +321,7 @@ namespace Microsoft.Exchange.WebServices.Data
             await this.service.GetAttachmentAsync(
                 this,
                 bodyType,
-                additionalProperties);
+                additionalProperties).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace Microsoft.Exchange.WebServices.Data
         /// </summary>
         public async System.Threading.Tasks.Task LoadAsync()
         {
-            await this.InternalLoadAsync(null, null);
+            await this.InternalLoadAsync(null, null).ConfigureAwait(false);
         }
     }
 }

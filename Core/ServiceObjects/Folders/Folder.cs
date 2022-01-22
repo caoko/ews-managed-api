@@ -71,7 +71,7 @@ namespace Microsoft.Exchange.WebServices.Data
             FolderId id,
             PropertySet propertySet)
         {
-            return await service.BindToFolderAsync<Folder>(id, propertySet);
+            return await service.BindToFolderAsync<Folder>(id, propertySet).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Microsoft.Exchange.WebServices.Data
             return await Folder.BindAsync(
                 service,
                 id,
-                PropertySet.FirstClassProperties);
+                PropertySet.FirstClassProperties).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Microsoft.Exchange.WebServices.Data
             return await Folder.BindAsync(
                 service,
                 new FolderId(name),
-                propertySet);
+                propertySet).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace Microsoft.Exchange.WebServices.Data
             return await Folder.BindAsync(
                 service,
                 new FolderId(name),
-                PropertySet.FirstClassProperties);
+                PropertySet.FirstClassProperties).ConfigureAwait(false);
         }
 
         /// <summary>

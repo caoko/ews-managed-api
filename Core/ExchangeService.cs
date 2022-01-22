@@ -210,7 +210,7 @@ namespace Microsoft.Exchange.WebServices.Data
             request.SearchFilter = searchFilter;
             request.View = view;
 
-            return await request.ExecuteAsync();
+            return await request.ExecuteAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new FolderId[] { parentFolderId },
                 searchFilter,
                 view,
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].Results;
         }
@@ -296,7 +296,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new FolderId[] { parentFolderId },
                 null, /* searchFilter */
                 view,
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].Results;
         }
@@ -326,7 +326,7 @@ namespace Microsoft.Exchange.WebServices.Data
         /// <returns>An object representing the results of the search operation.</returns>
         public async System.Threading.Tasks.Task<FindFoldersResults> FindFoldersAsync(WellKnownFolderName parentFolderName, SearchFilter searchFilter, FolderView view)
         {
-            return await this.FindFoldersAsync(new FolderId(parentFolderName), searchFilter, view);
+            return await this.FindFoldersAsync(new FolderId(parentFolderName), searchFilter, view).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -348,7 +348,7 @@ namespace Microsoft.Exchange.WebServices.Data
         /// <returns>An object representing the results of the search operation.</returns>
         public async System.Threading.Tasks.Task<FindFoldersResults> FindFoldersAsync(WellKnownFolderName parentFolderName, FolderView view)
         {
-            return await this.FindFoldersAsync(new FolderId(parentFolderName), view);
+            return await this.FindFoldersAsync(new FolderId(parentFolderName), view).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new[] { folderId },
                 propertySet,
                 ServiceErrorHandling.ThrowOnError
-            );
+            ).ConfigureAwait(false);
 
             return responses[0].Folder;
         }
@@ -447,7 +447,7 @@ namespace Microsoft.Exchange.WebServices.Data
         internal async System.Threading.Tasks.Task<TFolder> BindToFolderAsync<TFolder>(FolderId folderId, PropertySet propertySet)
             where TFolder : Folder
         {
-            Folder result = await this.BindToFolderAsync(folderId, propertySet);
+            Folder result = await this.BindToFolderAsync(folderId, propertySet).ConfigureAwait(false);
 
             if (result is TFolder)
             {
@@ -500,7 +500,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 folderIds,
                 propertySet,
                 ServiceErrorHandling.ReturnErrors
-            );
+            ).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -540,7 +540,7 @@ namespace Microsoft.Exchange.WebServices.Data
             request.FolderIds.AddRange(folderIds);
             request.PropertySet = propertySet;
 
-            return await request.ExecuteAsync();
+            return await request.ExecuteAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1105,7 +1105,7 @@ namespace Microsoft.Exchange.WebServices.Data
             request.View = view;
             request.GroupBy = groupBy;
 
-            return await request.ExecuteAsync();
+            return await request.ExecuteAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1147,7 +1147,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 queryString,
                 view,
                 null,   /* groupBy */
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].Results;
         }
@@ -1210,7 +1210,7 @@ namespace Microsoft.Exchange.WebServices.Data
             request.ReturnHighlightTerms = returnHighlightTerms;
             request.View = view;
 
-            ServiceResponseCollection<FindItemResponse<Item>> responses = await request.ExecuteAsync();
+            ServiceResponseCollection<FindItemResponse<Item>> responses = await request.ExecuteAsync().ConfigureAwait(false);
             return responses[0].Results;
         }
 
@@ -1278,7 +1278,7 @@ namespace Microsoft.Exchange.WebServices.Data
             request.View = view;
             request.GroupBy = groupBy;
 
-            ServiceResponseCollection<FindItemResponse<Item>> responses = await request.ExecuteAsync();
+            ServiceResponseCollection<FindItemResponse<Item>> responses = await request.ExecuteAsync().ConfigureAwait(false);
             return responses[0].GroupedFindResults;
         }
 
@@ -1325,7 +1325,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 null, /* queryString */
                 view,
                 null,   /* groupBy */
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].Results;
         }
@@ -1363,7 +1363,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 null, /* queryString */
                 view,
                 null, /* groupBy */
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].Results;
         }
@@ -1389,7 +1389,7 @@ namespace Microsoft.Exchange.WebServices.Data
         /// <returns>An object representing the results of the search operation.</returns>
         public async System.Threading.Tasks.Task<FindItemsResults<Item>> FindItemsAsync(WellKnownFolderName parentFolderName, string queryString, ViewBase view)
         {
-            return await this.FindItemsAsync(new FolderId(parentFolderName), queryString, view);
+            return await this.FindItemsAsync(new FolderId(parentFolderName), queryString, view).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1423,7 +1423,7 @@ namespace Microsoft.Exchange.WebServices.Data
             return await this.FindItemsAsync(
                 new FolderId(parentFolderName),
                 searchFilter,
-                view);
+                view).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1451,7 +1451,7 @@ namespace Microsoft.Exchange.WebServices.Data
             return await this.FindItemsAsync(
                 new FolderId(parentFolderName),
                 (SearchFilter)null,
-                view);
+                view).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1505,7 +1505,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 queryString,
                 view,
                 groupBy,
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].GroupedFindResults;
         }
@@ -1565,7 +1565,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 null, /* queryString */
                 view,
                 groupBy,
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].GroupedFindResults;
         }
@@ -1615,7 +1615,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 null, /* queryString */
                 view,
                 groupBy,
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].GroupedFindResults;
         }
@@ -1717,7 +1717,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new FolderId(parentFolderName),
                 queryString,
                 view,
-                groupBy);
+                groupBy).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1763,7 +1763,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new FolderId(parentFolderName),
                 searchFilter,
                 view,
-                groupBy);
+                groupBy).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1876,7 +1876,7 @@ namespace Microsoft.Exchange.WebServices.Data
             request.PropertySet = propertySet;
             request.AnchorMailbox = anchorMailbox;
 
-            return await request.ExecuteAsync();
+            return await request.ExecuteAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1959,7 +1959,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new ItemId[] { itemId },
                 propertySet,
                 null, /* anchorMailbox */
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
 
             return responses[0].Item;
         }
@@ -2000,7 +2000,7 @@ namespace Microsoft.Exchange.WebServices.Data
         internal async System.Threading.Tasks.Task<TItem> BindToItemAsync<TItem>(ItemId itemId, PropertySet propertySet)
             where TItem : Item
         {
-            Item result = await this.BindToItemAsync(itemId, propertySet);
+            Item result = await this.BindToItemAsync(itemId, propertySet).ConfigureAwait(false);
 
             if (result is TItem)
             {
@@ -2451,7 +2451,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 request.AdditionalProperties.AddRange(additionalProperties);
             }
 
-            return await request.ExecuteAsync();
+            return await request.ExecuteAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2489,7 +2489,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 attachments,
                 bodyType,
                 additionalProperties,
-                ServiceErrorHandling.ReturnErrors);
+                ServiceErrorHandling.ReturnErrors).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2539,7 +2539,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 request.AdditionalProperties.AddRange(additionalProperties);
             }
 
-            return await request.ExecuteAsync();
+            return await request.ExecuteAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2575,7 +2575,7 @@ namespace Microsoft.Exchange.WebServices.Data
                 new Attachment[] { attachment },
                 bodyType,
                 additionalProperties,
-                ServiceErrorHandling.ThrowOnError);
+                ServiceErrorHandling.ThrowOnError).ConfigureAwait(false);
         }
 
         /// <summary>
