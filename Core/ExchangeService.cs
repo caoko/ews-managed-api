@@ -96,6 +96,38 @@ namespace Microsoft.Exchange.WebServices.Data
         #region Folder operations
 
         /// <summary>
+        /// Creates a folder hierarchy
+        /// </summary>
+        /// <param name="folders"></param>
+        /// <param name="parentFolderId"></param>
+        /// <returns></returns>
+        /// <exception cref="ServiceValidationException"></exception>
+        public ServiceResponseCollection<CreateFolderPathResponse> CreateFolderPath(
+            IEnumerable<Folder> folders,
+            FolderId parentFolderId)
+        {
+            EwsUtilities.ValidateMethodVersion(
+                this,
+                ExchangeVersion.Exchange2013,
+                "CreateFolderPath");
+
+            EwsUtilities.ValidateParam(parentFolderId, "parentFolderId");
+
+            // All folders have to be new.
+            //if (!folders.TrueForAll((folder) => folder.IsNew))
+            //{
+            //    throw new ServiceValidationException("This operation can't be performed because at least one folder already has an ID.");
+            //}
+
+            CreateFolderPathRequest request = new CreateFolderPathRequest(this, ServiceErrorHandling.ReturnErrors);
+
+            request.Folders = new List<Folder>(folders);
+            request.ParentFolderId = parentFolderId;
+
+            return request.Execute();
+        }
+
+        /// <summary>
         /// Creates a folder. Calling this method results in a call to EWS.
         /// </summary>
         /// <param name="folder">The folder.</param>

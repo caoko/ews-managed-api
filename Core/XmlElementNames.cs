@@ -692,6 +692,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public const string MarkAsJunkResponseMessage = "MarkAsJunkResponseMessage";
         public const string MovedItemId = "MovedItemId";
 
+        public const string RelativeFolderPath = "RelativeFolderPath";
+
         #region Persona
 
         public const string CreationTime = "CreationTime";
@@ -1262,6 +1264,11 @@ namespace Microsoft.Exchange.WebServices.Data
         public const string CreateFolder = "CreateFolder";
         public const string CreateFolderResponse = "CreateFolderResponse";
         public const string CreateFolderResponseMessage = "CreateFolderResponseMessage";
+
+        // CreateFolderPath
+        public const string CreateFolderPath = "CreateFolderPath";
+        public const string CreateFolderPathResponse = "CreateFolderPathResponse";
+        public const string CreateFolderPathResponseMessage = "CreateFolderPathResponseMessage";
 
         // DeleteFolder
         public const string DeleteFolder = "DeleteFolder";
