@@ -479,6 +479,9 @@ namespace Microsoft.Exchange.WebServices.Autodiscover
         {
             string contentEncoding = response.ContentEncoding;
             Stream responseStream = response.GetResponseStream();
+            
+            if (string.IsNullOrEmpty(contentEncoding))
+                return responseStream;
 
             if (contentEncoding.ToLowerInvariant().Contains("gzip"))
             {
