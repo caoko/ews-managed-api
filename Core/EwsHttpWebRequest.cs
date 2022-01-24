@@ -293,6 +293,11 @@ namespace Microsoft.Exchange.WebServices.Data
             set { this.request.ConnectionGroupName = value; }
         }
 
+        public ServicePoint ServicePoint
+        {
+            get { return this.request.ServicePoint; }
+        }
+
         #endregion
     }
 }

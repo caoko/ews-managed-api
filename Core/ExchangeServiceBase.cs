@@ -63,7 +63,10 @@ namespace Microsoft.Exchange.WebServices.Data
 
         #endregion
 
-        #region Fields        
+        #region Fields
+
+        /// <remarks/>
+        public event PrepareHttpWebRequestHandler OnPrepareHttpWebRequest;
 
         /// <summary>
         /// Occurs when the http response headers of a server call is captured.
@@ -186,6 +189,11 @@ namespace Microsoft.Exchange.WebServices.Data
 
                 // Apply credentials to the request
                 serviceCredentials.PrepareWebRequest(request);
+            }
+
+            if (OnPrepareHttpWebRequest != null)
+            {
+                OnPrepareHttpWebRequest(request);
             }
 
             this.httpResponseHeaders.Clear();

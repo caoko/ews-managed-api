@@ -33,7 +33,7 @@ namespace Microsoft.Exchange.WebServices.Data
     /// <summary>
     /// HttpWebRequest proxy interface.
     /// </summary>
-    internal interface IEwsHttpWebRequest 
+    public interface IEwsHttpWebRequest 
     {
         /// <summary>
         /// Cancels request to an Internet resource.
@@ -234,6 +234,12 @@ namespace Microsoft.Exchange.WebServices.Data
         string ConnectionGroupName
         {
             get; set;
+        }
+
+        /// <remarks/>
+        ServicePoint ServicePoint
+        {
+            get;
         }
     }
 }

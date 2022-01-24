@@ -65,4 +65,7 @@ namespace Microsoft.Exchange.WebServices.Data
     /// <param name="xmlElementName">XML element name.</param>
     /// <returns>Service object instance.</returns>
     internal delegate T GetObjectInstanceDelegate<T>(ExchangeService service, string xmlElementName) where T : ServiceObject;
+
+    /// <remarks/>
+    public delegate void PrepareHttpWebRequestHandler(IEwsHttpWebRequest request);
 }
